@@ -30,7 +30,7 @@
    30         </style>
    31     </head>
    32     <body class="b">
-   33         <h1>ACTB Connection Portal</h1><br><br><br>
+   33         <h1>ACTB Connection Portals</h1><br><br><br>
    34         <form name="formedit" class="f" method="POST" action="Connection.html">
    35             <label for="custname">Customer Name</label>
    36             <input type="text" placeholder="Enter the customer name" name="custname" id="custname"><br><br>
