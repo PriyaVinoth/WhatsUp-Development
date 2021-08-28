@@ -1,0 +1,104 @@
+ <!DOCTYPE html>
+    2 <html>
+    3     <head>
+    4             <meta charset="UTF-8">
+    5             <title>Connection</title>
+    6         <style>
+    7             .b{
+    8                 background-color:#EED426;
+    9             }
+   10             h1{
+   11                 font-family:Verdana;
+   12                 text-align: center;
+   13                 color:#006666;
+   14             }
+   15             .f{
+   16                 color:black;
+   17             }
+   18             .para{
+   19                 text-align: center;
+   20                 color:black;
+   21             }
+   22             table,th,td{
+   23                 margin-left:auto;
+   24                 margin-right:auto;
+   25                 border-style:solid;
+   26             }
+   27             #rentalcost{
+   28                 text-align: center;
+   29             }
+   30         </style>
+   31     </head>
+   32     <body class="b">
+   33         <h1>ACTB Connection Portal</h1><br><br><br>
+   34         <form name="formedit" class="f" method="POST" action="Connection.html">
+   35             <label for="custname">Customer Name</label>
+   36             <input type="text" placeholder="Enter the customer name" name="custname" id="custname"><br><br>
+   37             <label>Customer Email</label>
+   38             <input type="email" placeholder="abc@gmail.com" name="email"><br><br>
+   39             <label>Mobile Number</label>
+   40             <input type="text"  pattern="[789][0-9]{9}" name="mobile" max="10" placeholder="Enter the Mobile Number"  ><br><br>
+   41            
+   42            
+   43            
+   44             <label>Connection Type</label>
+   45             <select name="conntype" id="connectiontype">
+   46                 <option  id="Pre" value="Pre" name="Pre">Pre</option>
+   47                 <option  id="Post" value="Post"  name="Post">Post</option> 
+   48             </select><br><br>
+   49            
+   50            
+   51             <label>Scheme Name</label>
+   52             <input type="radio" id="scheme1" name="scheme"  value="Local" checked>Local
+   53             <input type="radio" id="scheme2" name="scheme"  value="STD">STD
+   54             <input type="radio" id="scheme3" name="scheme"  value="FullTalkTime">FullTalkTime<br><br>
+   55            
+   56             <label>Connection Duration</label>
+   57             <input type="number" name="duration" id="num" min="1" max="12"><br><br>
+   58           
+   59            
+   60             <input type="button" onclick="calculate()" value="Connection Bill Amount" name="submit">
+   61             <input type="reset" value="Reset" name="clear">
+   62         </form><br>
+   63         <div id="result" name="result"></div>
+   64         <script type="text/javascript">
+   65              function calculate()
+   66                 {
+   67                     var costpermonth;
+   68                     var typeofbb=document.getElementById("connectiontype").value;
+   69                     var schemetype=document.getElementById("scheme1").value;
+   70                     if(document.getElementsByName("scheme")[0].checked==true)
+   71                          costpermonth=200;
+   72                     else if(document.getElementsByName("scheme")[1].checked==true)
+   73                          costpermonth=350;
+   74                     else
+   75                          costpermonth=500;
+   76                     var Duration=document.getElementById("num").value;
+   77                     if(typeofbb==="Pre")
+   78                     var monthlyrental=75;
+   79                     if(typeofbb==="Post")
+   80                     var monthlyrental=150;
+   81                     var Totalmonrencost=(Duration*costpermonth)+monthlyrental;
+   82                     document.getElementById("result").innerHTML="The Total Monthly Rental Cost is Rs. "+ Totalmonrencost;
+   83                 }
+   84         </script>
+   85         <p class="para">Rental Cost Table</p>
+   86         <table id="rentalcost">
+   87             <tr>
+   88                 <th>Connection Type</th>
+   89                 <th>Call Limit</th>
+   90                 <th>Monthly Rental</th>
+   91             </tr>
+   92             <tr>
+   93                 <td>Pre</td>
+   94                 <td>500</td>
+   95                 <td>75</td>
+   96             </tr>
+   97             <tr>
+   98                 <td>Post</td>
+   99                 <td>Unlimited</td>
+  100                 <td>150</td>
+  101             </tr>
+  102         </table>
+  103     </body>
+  104 </html>
